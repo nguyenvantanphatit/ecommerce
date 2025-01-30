@@ -38,7 +38,7 @@ const OtherInfo: React.FC<OtherInfoProps> = () => {
     <motion.div initial="hidden" animate="visible" className="flex flex-col">
       <AnimatedText
         className="text-2xl font-semibold md:text-4xl md:leading-[60px]"
-        text="Chào Đón Tết Nguyên Đán 2025"
+        text="Chào Đón Tết Nguyên Đán"
       />
       <AnimatedText
         className="text-xs text-[#D5D5D6]"
