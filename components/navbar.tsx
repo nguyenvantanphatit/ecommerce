@@ -51,7 +51,7 @@ const NavBarHomne = () => {
             <header className="flex items-center justify-between py-4 px-6 bg-[#0A0A0A]  sticky top-0 z-40">
                 <Link href="/">
                     <div className="flex items-center space-x-2">
-                        <span className="text-white text-lg font-bold">Company</span>
+                        <span className="text-white text-lg font-bold">TP</span>
                     </div>
                 </Link>
                 <ul className="relative items-center space-x-0 hidden md:flex">
@@ -139,7 +139,7 @@ const NavBarHomne = () => {
                 </ul>
                 <Link href="/signin" >
                     <div className="flex items-center space-x-2">
-                        <span className="text-white text-lg font-bold">Sign in</span>
+                        <span className="text-white">Sign in</span>
                     </div>
                 </Link>
                 <div className="md:hidden">
@@ -313,11 +313,6 @@ const NAV_ITEMS: Props[] = [
                         description: "Ship features, not infrastructure",
                         icon: Search,
                     },
-                ],
-            },
-            {
-                title: "Users",
-                items: [
                     {
                         label: "Platform Engineers",
                         description: "Automate away repetition",
