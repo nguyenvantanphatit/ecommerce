@@ -22,7 +22,7 @@ import {
 import { Sheet, SheetClose, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import Link from "next/link";
 import { Button } from "./ui/button";
-const NavBar = () => {
+const NavBarHomne = () => {
     const [openMenu, setOpenMenu] = React.useState<string | null>(null);
     const [isHover, setIsHover] = useState<number | null>(null);
     const [isSheetOpen, setIsSheetOpen] = useState(false);
@@ -70,7 +70,7 @@ const NavBar = () => {
                                 <span>{navItem.label}</span>
                                 {navItem.subMenus && (
                                     <ChevronDown
-                                        className={`h-4 w-4 group-hover:rotate-180 duration-300 transition-transform
+                                        className={`h-4 w-4 mt-1 group-hover:rotate-180 duration-300 transition-transform
                          ${openMenu === navItem.label ? "rotate-180" : ""}
                          `}
                                     />
@@ -137,7 +137,7 @@ const NavBar = () => {
                         </li>
                     ))}
                 </ul>
-                <Link href="/" >
+                <Link href="/signin" >
                     <div className="flex items-center space-x-2">
                         <span className="text-white text-lg font-bold">Sign in</span>
                     </div>
@@ -150,11 +150,11 @@ const NavBar = () => {
                             </Button>
                         </SheetTrigger>
                         <SheetContent side="right" className="w-full bg-[#0A0A0A]">
-                            <nav className="flex flex-col space-y-4">
+                            <nav className="flex flex-col space-y-1">
                                 {NAV_ITEMS.map((navItem) => (
-                                    <div key={navItem.label} className="py-2">
+                                    <div key={navItem.label} className="py-1">
                                         <button
-                                            className="text-sm py-2 px-4 flex w-full cursor-pointer group transition-colors duration-300 items-center justify-between text-white"
+                                            className="text-sm py-2 pr-4 pl-1 flex w-full cursor-pointer group transition-colors duration-300 items-center justify-between text-white"
                                             onClick={() => handleHover(navItem.label)}
                                         >
                                             <span>{navItem.label}</span>
@@ -166,7 +166,7 @@ const NavBar = () => {
                                             )}
                                         </button>
                                         {openMenu === navItem.label && navItem.subMenus && (
-                                            <div className="pl-4 mt-2">
+                                            <div className="pl-1 mt-2">
                                                 {navItem.subMenus.map((sub) => (
                                                     <div key={sub.title} className="mb-4">
                                                         <h3 className="mb-2 text-sm font-medium capitalize text-white/50">{sub.title}</h3>
@@ -205,7 +205,7 @@ const NavBar = () => {
     );
 };
 
-export default NavBar;
+export default NavBarHomne;
 type Props = {
     id: number;
     label: string;
