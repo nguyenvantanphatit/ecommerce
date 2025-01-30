@@ -1,20 +1,21 @@
+import Blog from "@/components/Blog";
+import FlashSale from "@/components/flashSale";
 import Hero from "@/components/hero";
 import LuckyWheel from "@/components/LuckyWheel";
+import PolicyHome from "@/components/policyHome";
 import FeaturedProducts from "@/components/productHome";
-import TetRecipes from "@/components/TetRecipes";
-import React from "react";
 export default function Home() {
   return (
     <>
       <Hero />
+      <FlashSale />
       <FeaturedProducts />
       <LuckyWheel />
-      <TetRecipes />
+      <Blog />
+      <PolicyHome />
     </>
   );
 }
-
-
 
 
 

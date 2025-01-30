@@ -1,7 +1,86 @@
 "use client";
 import React, { useState } from "react";
+export default function FAQPage() {
+  const [openFAQ, setOpenFAQ] = useState(null);
+  const toggleFAQ = (index: any) => {
+    setOpenFAQ(openFAQ === index ? null : index);
+  };
+  return (
+    <section>
+      <div className="mx-auto flex w-full max-w-7xl flex-col items-center px-5 py-16 md:px-10 md:py-20">
+        <div className="mx-auto flex max-w-xl flex-col items-center justify-center px-6 text-center lg:max-w-3xl lg:px-10">
+          <h2 className="text-3xl lg:text-5xl font-bold">
+            Frequently Asked Questions
+          </h2>
+        </div>
+        <div className="mt-10 flex w-full flex-col">
+          {faqData.map((faq, index) => (
+            <>
+              <div
+                key={index}
+                className="relative my-3 w-full rounded-md px-12 py-8"
+              >
+                <div className="max-w-2xl">
+                  <h2
+                    className="text-xl font-bold "
+                    onClick={() => toggleFAQ(index)}
+                  >
+                    {faq.question}
+                  </h2>
+                  {openFAQ === index && (
+                    <p className="font-inter mt-4 text-base font-light text-gray-500">
+                      {faq.answer}
+                    </p>
+                  )}
+                </div>
+                <button
+                  className="absolute right-5 top-9 focus:outline-none"
+                  onClick={() => toggleFAQ(index)}
+                >
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle cx="12" cy="12" r="12" fill="white"></circle>
+                    <path
+                      d="M7.04688 11.9999H16.9469"
+                      stroke="black"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    {openFAQ !== index && (
+                      <path
+                        d="M12 7.05005V16.95"
+                        stroke="black"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    )}
+                  </svg>
+                </button>
+              </div>
+              <div className="mr-4 ml-8 border border-gray-200"></div>
+            </>
+          ))}
+        </div>
+        <p className="font-inter mx-auto mt-12 text-center text-base text-gray-500">
+          Can’t find the answer you’re looking for? Reach out to our
+          <a href="#" className="text-black font-bold">
+            {" "}
+            customer support team.
+          </a>
+        </p>
+      </div>
+    </section>
+  );
+}
 
-// Example FAQ data
+
 const faqData = [
   {
     question: "What is the purpose of this FAQ?",
@@ -16,82 +95,3 @@ const faqData = [
     answer: "We accept all major credit cards and PayPal.",
   },
 ];
-
-export default function FAQPage() {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
-
-  const toggleAccordion = (index: number) => {
-    setActiveIndex(activeIndex === index ? null : index);
-  };
-
-  return (
-    <section className="py-32">
-      <div className="max-w-screen-2xl mx-auto px-4 md:px-16">
-        <h2 className="text-2xl font-bold pb-12 text-center">
-          Frequently Asked Questions
-        </h2>
-        <div className="space-y-6">
-          {faqData.map((faq, index) => (
-            <FAQItem
-              key={index}
-              faq={faq}
-              isActive={activeIndex === index}
-              onToggle={() => toggleAccordion(index)}
-            />
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-interface FAQItemProps {
-  faq: { question: string; answer: string };
-  isActive: boolean;
-  onToggle: () => void;
-}
-
-const FAQItem: React.FC<FAQItemProps> = ({ faq, isActive, onToggle }) => {
-  return (
-    <div
-      className={`border rounded-lg p-3 transition duration-300 ${
-        isActive ? "border-[#0D99FF]" : "border-gray-200"
-      }`}
-    >
-      <button
-        onClick={onToggle}
-        className="flex justify-between items-center w-full text-left"
-      >
-        <h5
-          className={`text-base transition duration-300 ${
-            isActive
-              ? "text-[#0D99FF]"
-              : "text-black hover:text-[#0D99FF]"
-          }`}
-        >
-          {faq.question}
-        </h5>
-        <svg
-          className={`w-4 h-4 transform transition duration-300 ${
-            isActive ? "rotate-180 text-[#0D99FF]" : ""
-          }`}
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M19 9l-7 7-7-7"
-          />
-        </svg>
-      </button>
-      {isActive && (
-        <div className="mt-4 text-base whitespace-pre-line">
-          {faq.answer}
-        </div>
-      )}
-    </div>
-  );
-};

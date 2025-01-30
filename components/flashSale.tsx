@@ -16,7 +16,7 @@ const products = [
   { id: 5, name: 'Lộc Xuân Phát Tài 05', price: '50.000đ', imageUrl: '/Gift/1.webp', link: '#' },
 ]
 
-export default function FeaturedProducts() {
+export default function FlashSale() {
   return (
     <section className="py-8 bg-white">
       <div className="container mx-auto px-4">
