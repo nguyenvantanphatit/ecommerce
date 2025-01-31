@@ -23,7 +23,7 @@ export function ImageSlider() {
     }
 
     return (
-        <div className="relative w-full mx-auto px-4 py-8">
+        <div className="relative w-full mx-auto px-4 py-8 bg-black">
             <div className="flex items-center gap-4">
                 {/* Main large image */}
                 <div className="relative flex-1 w-96">
