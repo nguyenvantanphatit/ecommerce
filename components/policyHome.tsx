@@ -5,7 +5,7 @@ export default function PolicyHome() {
   return (
     <>
         <div className="mx-auto w-full px-5 py-16 md:px-10 md:py-20 bg-black rounded-t-[100px] my-8">
-            <div className="flex gap-4 lg:justify-between">
+            <div className="flex flex-col md:flex-row gap-4 lg:justify-between">
               <div
                 className={`flex rounded-md p-4 text-gray-500 [box-shadow:rgba(0,_0,_0,_0.05)_0px_0px_10px] ${activeImage === 0 ? "border-l-4 border-black" : ""}`}
                 onClick={(e) => {

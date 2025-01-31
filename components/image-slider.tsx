@@ -53,7 +53,7 @@ export function ImageSlider() {
                             onClick={() => handleThumbnailClick(index)}
                             className={cn(
                                 "relative aspect-[4/3] overflow-hidden rounded-xl transition-all duration-300",
-                                currentIndex === index ? "border" : "opacity-60 hover:opacity-100",
+                                currentIndex === index ? "" : "opacity-60 hover:opacity-100",
                             )}
                         >
                             <Image src={image.src || "/placeholder.svg"} alt={image.alt} fill className="object-cover" />
