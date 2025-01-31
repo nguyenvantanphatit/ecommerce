@@ -26,25 +26,9 @@ const NavBarHomne = () => {
     const [openMenu, setOpenMenu] = React.useState<string | null>(null);
     const [isHover, setIsHover] = useState<number | null>(null);
     const [isSheetOpen, setIsSheetOpen] = useState(false);
-    const [isAddressVisible, setIsAddressVisible] = useState(true);
     const handleHover = (menuLabel: string | null) => {
         setOpenMenu(prev => (prev === menuLabel ? null : menuLabel));
     };
-    useEffect(() => {
-        const handleScroll = () => {
-            if (window.scrollY > 50) {
-                setIsAddressVisible(false);
-            } else {
-                setIsAddressVisible(true);
-            }
-        };
-
-        window.addEventListener("scroll", handleScroll);
-
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
-    }, []);
 
     return (
         <>
@@ -71,7 +55,7 @@ const NavBarHomne = () => {
                                     <span>{navItem.label}</span>
                                     {navItem.subMenus && (
                                         <ChevronDown
-                                            className={`h-4 w-4 mt-1 group-hover:rotate-180 duration-300 transition-transform
+                                            className={`h-4 w-4 group-hover:rotate-180 duration-300 transition-transform
                                         ${openMenu === navItem.label ? "rotate-180" : ""}
                                         `}
                                         />
@@ -225,21 +209,21 @@ type Props = {
 const NAV_ITEMS: Props[] = [
     {
         id: 1,
-        label: "Products",
-        link: "/contact",
+        label: "Sản Phẩm",
+        link: "/product",
         subMenus: [
             {
-                title: "DX Platform",
+                title: "Giày",
                 link: "/contact",
                 items: [
                     {
-                        label: "Previews",
+                        label: "Jordan",
                         description: "Helping teams ship 6× faster",
                         icon: Cpu,
                         link: "/contact",
                     },
                     {
-                        label: "AI",
+                        label: "Casual",
                         description: "Powering breakthroughs",
                         icon: Search,
                         link: "/contact",
@@ -436,8 +420,8 @@ const NAV_ITEMS: Props[] = [
     },
     {
         id: 6,
-        label: "Pricing",
-        link: "/contact",
+        label: "Blog",
+        link: "/blog",
     },
     {
         id: 7,
