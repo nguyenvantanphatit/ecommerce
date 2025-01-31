@@ -23,6 +23,7 @@ type BlogItem = {
   description: string
   image: string
   isLarge: boolean
+  slug?: string
 }
 
 const items: BlogItem[] = [
@@ -32,6 +33,7 @@ const items: BlogItem[] = [
         description: "Discover the beauty of the natural world",
         image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwxfHxuYXR1cmV8ZW58MHwwfHx8MTcyMTA0MjYwMXww&ixlib=rb-4.0.3&q=80&w=1080",
         isLarge: true,
+        slug: "explore-nature",
       },
       {
         id: 2,
@@ -139,17 +141,18 @@ export function BlogList({ initialPage }: { initialPage: number }) {
         <div className="mx-auto px-4 py-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             {currentItems.map((item) => (
+              <Link href={`blog/${item.id.toString()}`}>
               <div
                 key={item.id}
                 className={`relative overflow-hidden rounded-2xl shadow-lg group ${
                   item.isLarge ? "md:col-span-2 md:row-span-2" : ""
-                }`}
+                  }`}
               >
                 <img
                   src={item.image || "/placeholder.svg"}
                   alt={item.title}
                   className={`w-full ${item.isLarge ? "h-full" : "h-full"} object-cover`}
-                />
+                  />
                 <div className="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="absolute bottom-0 left-0 right-0 p-4">
                     <h3 className={`text-white ${item.isLarge ? "text-2xl" : "text-xl"} font-bold`}>{item.title}</h3>
@@ -157,6 +160,7 @@ export function BlogList({ initialPage }: { initialPage: number }) {
                   </div>
                 </div>
               </div>
+                  </Link>
             ))}
           </div>
         </div>
