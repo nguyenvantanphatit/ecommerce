@@ -46,7 +46,7 @@ export function ImageSlider() {
                         )}
                     </div>
                 </div>
-                <div className="relative hidden md:flex flex-row -right-36  gap-4 w-[800px] h-60">
+                <div className="relative hidden md:flex flex-row gap-4 w-[800px] h-60">
                     {images.map((image, index) => (
                         <button
                             key={index}
