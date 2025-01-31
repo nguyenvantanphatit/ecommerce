@@ -60,7 +60,7 @@ export function ImageSlider() {
                         </button>
                     ))}
 
-                    <div className="absolute space-x-4 -bottom-10 right-1/2">
+                    <div className="absolute space-x-4 -bottom-16 right-1/2">
                         <Button
                             variant="outline"
                             size="icon"
