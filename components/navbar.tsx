@@ -35,7 +35,7 @@ const NavBarHomne = () => {
             <header className="flex items-center justify-between py-4 px-6 bg-[#0A0A0A]  sticky top-0 z-40">
                 <Link href="/">
                     <div className="flex items-center space-x-2">
-                        <span className="text-white text-lg font-bold">TP</span>
+                        <span className="text-white text-lg font-bold">Tan Phat Store</span>
                     </div>
                 </Link>
                 <ul className="relative items-center space-x-0 hidden md:flex">

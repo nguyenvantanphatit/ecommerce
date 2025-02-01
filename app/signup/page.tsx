@@ -1,4 +1,3 @@
-"use client"
 import { SignUpForm } from '@/components/user-signup-form'
 export default function SignUp() {
     return (
